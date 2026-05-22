@@ -41,4 +41,9 @@ export default defineConfig({
 		},
 	],
 	devToolbar: { enabled: false },
+	vite: {
+		server: {
+			allowedHosts: [".ts.net"],
+		},
+	},
 });
