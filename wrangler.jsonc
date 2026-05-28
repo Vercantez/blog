@@ -1,22 +1,35 @@
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "my-emdash-site",
+	"name": "vercantez",
 	"main": "./src/worker.ts",
 	"compatibility_date": "2026-02-24",
 	"compatibility_flags": ["nodejs_compat"],
+	"routes": [
+		{
+			"pattern": "vercantez.com",
+			"custom_domain": true,
+		},
+	],
 	"d1_databases": [
 		{
 			"binding": "DB",
-			"database_name": "my-emdash-site",
+			"database_name": "vercantez-blog",
+			"database_id": "25a8c5e4-99d7-4217-b784-fdc472fed15a",
 		},
 	],
 	"r2_buckets": [
 		{
 			"binding": "MEDIA",
-			"bucket_name": "my-emdash-media",
+			"bucket_name": "vercantez-media",
 		},
 	],
-	// Worker Loader for plugin sandboxing
+	"kv_namespaces": [
+		{
+			"binding": "SESSION",
+			"id": "3e1b1996cd494e32bf37fdf0e6c5c871",
+		},
+	],
+	// Worker Loader for plugin sandboxing (requires Workers Paid plan)
 	"worker_loaders": [
 		{
 			"binding": "LOADER",
